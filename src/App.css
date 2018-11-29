@@ -20,11 +20,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 5vh;
 }
 
 .App-input-regex-row .input {
   width: 50vh;
+}
+
+.App-input-regex-row .checkbox {
+  width: 10vh;
 }
 
 .App-text {
