@@ -1,56 +1,72 @@
-import React, {
-  Component
-} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       regexString: "",
-      regex: ""
-    }
+      regex: "",
+      matchResult: ""
+    };
   }
-  regexStringChange = (e) => {
+  regexStringChange = e => {
     var value = e.target.value;
     this.setState({
       regexString: value
-    })
-  }
-  regexChange = (e) => {
+    });
+  };
+  regexChange = e => {
     var value = e.target.value;
     this.setState({
       regex: value
-    })
-  }
-  startMatch = (e) => {
+    });
+  };
+  startMatch = e => {
     let reg = new RegExp(this.state.regex);
     // alert(reg.test(this.state.regexString) ? true : false);//test返回是否可以匹配到
-    alert(reg.exec(this.state.regexString));//exec返回匹配的结果
-
-  }
+    //因为 this.props 和 this.state 可能是异步更新的，你不应该依靠它们的值来计算下一个状态。
+    this.setState((prevState, props) => {
+      let result = reg.exec(prevState.regexString);
+      // alert(result ? result : '没匹配到字符串'); //exec返回匹配的结果
+      return {
+        matchResult: result
+      };
+    });
+  };
 
   render() {
-    return (<
-      div className="App" >
-      <
-      header className="App-header" >
-        <
-      div className="App-row"> 待匹配字符串：<
-            input type="text" value={this.state.regexString} onChange={this.regexStringChange} /> < /div>
-             <
-      div className="App-row"> 请输入正则表达式：<
-              input type="text" value={this.state.regex} onChange={this.regexChange} /> < /div>
-    <div onClick={this.startMatch}>
-              测试匹配
-    </div>
-            <
-      /header> < /
-      div >
-                                                                                                                                );
-                                                                                                                              }
-                                                                                                                            }
-                                                                                                                            
+    return (
+      <div className="App">
+        <header className="App-header">
+          <div className="App-row">
+            待匹配字符串：
+            <input
+              className="App-text"
+              type="text"
+              value={this.state.regexString}
+              onChange={this.regexStringChange}
+            />
+          </div>
+          <div className="App-input-regex-row">
+            请输入正则表达式：
+            <input
+              className="input"
+              type="text"
+              value={this.state.regex}
+              onChange={this.regexChange}
+            />
+            <button onClick={this.startMatch}>开始匹配 </button>
+          </div>
+          <div className="App-row">
+            匹配结果：
+            <text className="App-text"> {this.state.matchResult} </text>
+          </div>
+        </header>
+      </div>
+    );
+  }
+}
+
 export default App;

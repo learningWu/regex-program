@@ -8,11 +8,29 @@
 }
 
 .App-row {
-  min-width: 60vh;
+  min-width: 150vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 5vh;
+}
+
+.App-input-regex-row {
+  min-width: 150vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5vh;
+}
+
+.App-input-regex-row .input {
+  width: 50vh;
+}
+
+.App-text {
+  width: 100vh;
+  height: 30vh;
+  background: antiquewhite;
 }
 
 .App-header {
