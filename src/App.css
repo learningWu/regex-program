@@ -35,6 +35,8 @@
 .App-text {
   width: 100vh;
   height: 30vh;
+  color: black;
+  text-emphasis: 100;
   background: antiquewhite;
 }
 
