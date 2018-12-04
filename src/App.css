@@ -19,24 +19,32 @@
   min-width: 150vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 5vh;
 }
 
-.App-input-regex-row .input {
-  width: 50vh;
+.App-input-regex-row .right {
+  margin-left: 20vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.App-input-regex-row .checkbox {
+.App-input-regex-row .right .input {
+  width: 50vh;
+  margin-right: 5vh;
+}
+
+.App-input-regex-row .right .checkbox {
   width: 10vh;
 }
 
 .App-text {
+  font-size: 5vh;
+  text-align: start;
   width: 100vh;
   height: 30vh;
   color: black;
-  text-emphasis: 100;
   background: antiquewhite;
 }
 
