@@ -78,27 +78,31 @@ class App extends Component {
           </div>{" "}
           <div className="App-input-regex-row">
             请输入正则表达式：{" "}
-            <input
-              className="input"
-              type="text"
-              value={this.state.regex}
-              onChange={this.regexChange}
-            />{" "}
-            全局匹配{" "}
-            <input
-              type="checkbox"
-              className="checkbox"
-              defaultChecked={this.state.globalMatch}
-              onChange={this.checkChange}
-            />{" "}
-            <button
-              onClick={
-                this.state.globalMatch ? this.startGlobalMatch : this.startMatch
-              }
-            >
-              {" "}
-              开始匹配{" "}
-            </button>{" "}
+            <div className="right">
+              <input
+                className="input"
+                type="text"
+                value={this.state.regex}
+                onChange={this.regexChange}
+              />{" "}
+              全局匹配{" "}
+              <input
+                type="checkbox"
+                className="checkbox"
+                defaultChecked={this.state.globalMatch}
+                onChange={this.checkChange}
+              />{" "}
+              <button
+                onClick={
+                  this.state.globalMatch
+                    ? this.startGlobalMatch
+                    : this.startMatch
+                }
+              >
+                {" "}
+                开始匹配{" "}
+              </button>{" "}
+            </div>
           </div>{" "}
           <div className="App-row">
             匹配结果：{" "}
